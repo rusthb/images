@@ -71,12 +71,6 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Login to Quay
-        uses: docker/login-action@v3
-        with:
-          registry: quay.io
-          username: matthewp
-          password: ${{ secrets.QUAY_SECRET }}
 
       - name: Build and Push
         uses: docker/build-push-action@v5
@@ -86,5 +80,5 @@ jobs:
           platforms: ${{ matrix.image.platforms }}
           push: true
           tags: |
-            ghcr.io/matthewpi/images:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
-            quay.io/matthewp/pterodactyl:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
+            ghcr.io/rusthb/images:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
+ 
