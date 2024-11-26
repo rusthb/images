@@ -42,6 +42,7 @@ ENV			JAVA_HOME=/usr/lib/jvm/zulu21-ca
 
 USER root
 RUN chmod -R u+w /home/container
+RUN chown -R container:container /home/container
 
 USER container
 ENV			USER=container HOME=/home/container
