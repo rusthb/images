@@ -48,7 +48,9 @@ USER container
 ENV			USER=container HOME=/home/container
 WORKDIR		/home/container
 
-
+USER root
+RUN chmod -R u+w /home/container
+RUN chown -R container:container /home/container
 
 COPY		./entrypoint.sh /entrypoint.sh
 CMD			[ "/bin/bash", "/entrypoint.sh" ]
